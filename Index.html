@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our 3 Years ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#160b18,#5b1839,#e85d8a);
+    color:white;
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.container{
+    width:100%;
+    max-width:430px;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+    position:relative;
+}
+
+.page{
+    width:100%;
+    animation:fade 1.5s ease;
+}
+
+h1{
+    font-size:35px;
+    line-height:1.2;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.subtitle{
+    font-size:16px;
+    opacity:.85;
+    margin-bottom:35px;
+}
+
+.heart{
+    font-size:85px;
+    animation:beat 1.2s infinite;
+    margin-bottom:25px;
+}
+
+button{
+    border:0;
+    padding:15px 32px;
+    border-radius:40px;
+    background:white;
+    color:#d13c70;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(0,0,0,.3);
+}
+
+button:active{
+    transform:scale(.95);
+}
+
+.hidden{
+    display:none;
+}
+
+.card{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:25px;
+    padding:28px 22px;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.card h2{
+    font-size:26px;
+    margin-bottom:18px;
+}
+
+.card p{
+    font-size:16px;
+    line-height:1.8;
+}
+
+.photo{
+    width:190px;
+    height:190px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid white;
+    margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.date{
+    margin-top:20px;
+    font-size:14px;
+    opacity:.8;
+}
+
+.heart-float{
+    position:fixed;
+    bottom:-40px;
+    font-size:20px;
+    animation:float 6s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.18)}
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HALAMAN PEMBUKA -->
+    <div class="page" id="opening">
+
+        <div class="heart">❤️</div>
+
+        <h1>
+            3 YEARS AGO,<br>
+            OUR STORY BEGAN
+        </h1>
+
+        <p class="subtitle">
+            And somehow, three beautiful years have passed...
+        </p>
+
+        <button onclick="openStory()">
+            OPEN OUR STORY 💌
+        </button>
+
+    </div>
+
+
+    <!-- HALAMAN CERITA -->
+    <div class="page hidden" id="story">
+
+        <div class="card">
+
+            <!-- FOTO SEMENTARA -->
+            <div class="photo"
+                 style="
+                 margin-left:auto;
+                 margin-right:auto;
+                 display:flex;
+                 align-items:center;
+                 justify-content:center;
+                 background:linear-gradient(135deg,#ff8fab,#ffc2d1);
+                 font-size:65px;
+                 ">
+                ❤️
+            </div>
+
+            <h2>
+                Happy 3rd Anniversary ❤️
+            </h2>
+
+            <p>
+                Three years ago, our story began.
+                <br><br>
+
+                Dari hari pertama sampai hari ini,
+                banyak sekali cerita yang sudah kita
+                lewati bersama.
+                <br><br>
+
+                Terima kasih sudah tetap di sini,
+                sudah menjadi bagian dari hidupku,
+                dan sudah membuat begitu banyak
+                kenangan indah bersamaku.
+                <br><br>
+
+                Semoga cerita kita terus berlanjut,
+                bukan hanya sampai 3 tahun,
+                tapi sampai tahun-tahun berikutnya.
+                ❤️
+            </p>
+
+            <div class="date">
+                3 years of us • and still counting ♾️
+            </div>
+
+            <br>
+
+            <button onclick="love()">
+                ONE MORE THING ❤️
+            </button>
+
+            <p id="loveText"
+               class="hidden"
+               style="margin-top:20px;">
+                I LOVE YOU. TODAY, TOMORROW,
+                AND EVERY DAY AFTER THAT. ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function openStory(){
+
+    document.getElementById("opening")
+    .classList.add("hidden");
+
+    document.getElementById("story")
+    .classList.remove("hidden");
+
+}
+
+function love(){
+
+    document.getElementById("loveText")
+    .classList.remove("hidden");
+
+}
+
+
+/* ANIMASI HATI */
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart-float";
+    heart.innerHTML=["❤️","💕","💗","💖","💓"]
+    [Math.floor(Math.random()*5)];
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=
+        (15+Math.random()*25)+"px";
+
+    heart.style.animationDuration=
+        (4+Math.random()*4)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
